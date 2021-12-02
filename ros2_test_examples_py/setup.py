@@ -13,13 +13,25 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='hx',
-    maintainer_email='hx@todo.todo',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    maintainer='m12watanabe1a',
+    maintainer_email='m12watanabe1a@gmail.com',
+    description='ros2 test example package',
+    license='Appache License 2.0',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': [
-        ],
+            'console_scripts': [
+                '{node} = {pkg_path}.{filename}:{entry}'.format(
+                    node='talker',
+                    pkg_path=package_name,
+                    filename='talker',
+                    entry='main',
+                ),
+                '{node} = {pkg_path}.{filename}:{entry}'.format(
+                    node='listener',
+                    pkg_path=package_name,
+                    filename='listener',
+                    entry='main',
+                ),
+            ],
     },
 )
